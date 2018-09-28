@@ -1,0 +1,7 @@
+#!/bin/bash
+runner=$USER
+pkill zsh
+sudo su
+cp daemon.conf /etc/pulse/daemon.conf
+cp Monokai-Flat.colorscheme /home/$runner/.local/share/konsole/Monokai-Flat.colorscheme
+cp zshrc /home/$runner/.zshrc

@@ -12,10 +12,11 @@ exit
 
 
 echo "This will install an updated /etc/pulse/daemon.conf, ~/.zshrc, and a new Konsole theme."
-echo "\n It will also kill any open zsh instances, so please close those if they exist."
-read -p "Do you wish to continue?" yn
-case $yn in
-    [Yn]* ) install ;
-    [Nn]* ) exit
-esac
-    
+echo "\nIt will also kill any open zsh instances, so please close those if they exist."
+echo "Do you wish to continue?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) install ; break;;
+        No ) exit;;
+    esac
+done    

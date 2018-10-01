@@ -1,7 +1,21 @@
 #!/bin/bash
 runner=$USER
+
+install (){
 pkill zsh
 sudo su
 cp daemon.conf /etc/pulse/daemon.conf
 cp Monokai-Flat.colorscheme /home/$runner/.local/share/konsole/Monokai-Flat.colorscheme
 cp zshrc /home/$runner/.zshrc
+exit
+}
+
+
+echo "This will install an updated /etc/pulse/daemon.conf, ~/.zshrc, and a new Konsole theme."
+echo "\n It will also kill any open zsh instances, so please close those if they exist."
+read -p "Do you wish to continue?" yn
+case $yn in
+    [Yn]* ) install ;
+    [Nn]* ) exit
+esac
+    

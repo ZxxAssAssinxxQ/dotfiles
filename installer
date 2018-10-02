@@ -2,21 +2,22 @@
 runner=$USER
 
 install (){
-pkill zsh
-sudo su
-cp daemon.conf /etc/pulse/daemon.conf
-cp Monokai-Flat.colorscheme /home/$runner/.local/share/konsole/Monokai-Flat.colorscheme
-cp zshrc /home/$runner/.zshrc
+kill zsh
+sudo cp daemon.conf /etc/pulse/daemon.conf
+sudo cp Monokai-Flat.colorscheme /home/$runner/.local/share/konsole/Monokai-Flat.colorscheme
+sudo apt install zsh vim chromium-browser
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sudo cp zshrc /home/$runner/.zshrc
 exit
 }
 
 
 echo "This will install an updated /etc/pulse/daemon.conf, ~/.zshrc, and a new Konsole theme."
-echo "\nIt will also kill any open zsh instances, so please close those if they exist."
-echo "Do you wish to continue?"
+echo "It will also kill any open zsh instances, so run this from a bash prompt only."
+echo "Do you wish to continue? Answer with the number of your choice only."
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) install ; break;;
-        No ) exit;;
+        Yes ) install; break;;
+        No ) exit; break;;
     esac
-done    
+done

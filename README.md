@@ -1,2 +1,2 @@
 # dotfiles
-all my config files for various distros
+Kubuntu config files

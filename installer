@@ -8,6 +8,7 @@ sudo cp Monokai-Flat.colorscheme /home/$runner/.local/share/konsole/Monokai-Flat
 sudo apt install zsh vim chromium-browser
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 sudo cp zshrc /home/$runner/.zshrc
+git config --global core.editor "vim"
 exit
 }
 

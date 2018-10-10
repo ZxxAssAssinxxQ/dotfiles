@@ -3,15 +3,20 @@ runner=$USER
 
 install (){
 kill zsh
-sudo cp daemon.conf /etc/pulse/daemon.conf
-sudo cp Monokai-Flat.colorscheme /home/$runner/.local/share/konsole/Monokai-Flat.colorscheme
+sudo cp daemon.conf /etc/pulse/daemon.conf	#adjusts bass crossover so bass actually gets sent to subwoofers
+sudo cp Monokai-Flat.colorscheme /home/$runner/.local/share/konsole/Monokai-Flat.colorscheme	#a nice konsole theme
 sudo apt install zsh vim chromium-browser
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-sudo cp zshrc /home/$runner/.zshrc
-git config --global core.editor "vim"
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" #download and install oh my zsh
+sudo cp zshrc /home/$runner/.zshrc	#nice zsh config
+git config --global core.editor "vim"	#add commit messages in vim
 git config --global user.email wil.wintrode@gmail.com
 git config --global user.name ZxxAssAssinxxQ
-curl https://sh.rustup.rs -sSf | sh
+curl https://sh.rustup.rs -sSf | sh	#install rust
+wget http://kdl.cc.ksosoft.com/wps-community/download/6757/wps-office_10.1.0.6757_amd64.deb
+sudo apt install ./wps-office_10.1.0.6757_amd64.deb		#install wps office and correct the mime type issues introduced by the package
+rm wps-office_10.1.0.6757_amd64.deb
+sudo rm /usr/share/mime/packages/wps-office-*
+sudo update-mime-database /usr/share/mime
 exit
 }
 

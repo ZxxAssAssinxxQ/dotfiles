@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo pacman -Syu fish
+curl -L https://get.oh-my.fish | fish
+omf install agnoster
